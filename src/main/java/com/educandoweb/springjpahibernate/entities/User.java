@@ -1,17 +1,22 @@
 package com.educandoweb.springjpahibernate.entities;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
+@Entity
+@Table(name = "users")
 public class User implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String email;
     private String phone;
     private String password;
 
-    public User(long l, String maria) {
+    public User() {
     }
 
     public User(Long id, String name, String email, String phone, String password) {
