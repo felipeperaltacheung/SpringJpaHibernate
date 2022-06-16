@@ -2,7 +2,6 @@ package com.educandoweb.springjpahibernate.entities;
 
 import com.educandoweb.springjpahibernate.entities.enums.OrderStatus;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;

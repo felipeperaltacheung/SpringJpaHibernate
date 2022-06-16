@@ -1,16 +1,19 @@
 package com.educandoweb.springjpahibernate.entities;
 
+import com.educandoweb.springjpahibernate.entities.Order;
+import com.educandoweb.springjpahibernate.entities.enums.OrderStatus;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.aspectj.weaver.ast.Or;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "tb_users")
+@Table(name = "tb_user")
 public class User implements Serializable {
 
     @Id
@@ -21,14 +24,15 @@ public class User implements Serializable {
     private String phone;
     private String password;
 
-
     @JsonIgnore
     @OneToMany(mappedBy = "client")
     private List<Order> orders = new ArrayList<>();
-    public User() {
+
+    public User(){
     }
 
     public User(Long id, String name, String email, String phone, String password) {
+        super();
         this.id = id;
         this.name = name;
         this.email = email;

@@ -3,7 +3,6 @@ package com.educandoweb.springjpahibernate.services;
 import com.educandoweb.springjpahibernate.entities.Order;
 import com.educandoweb.springjpahibernate.entities.User;
 import com.educandoweb.springjpahibernate.repositories.OrderRepository;
-import com.educandoweb.springjpahibernate.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
