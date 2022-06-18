@@ -18,7 +18,9 @@ public class Product implements Serializable {
     private Double price;
     private String imgUrl;
 
-    @Transient //vai impedir que o jpa tente interpretar isso
+    //@Transient //vai impedir que o jpa tente interpretar isso
+    @ManyToMany
+    @JoinTable(name = "tb_product_category", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories = new HashSet<>();
     //Instanciado p/ garantir que a colecao categories nao comece nula ela tem que comecar vazia
     //Set e uma interface, entao deve-se usar a classe HashSet
@@ -74,8 +76,8 @@ public class Product implements Serializable {
         this.imgUrl = imgUrl;
     }
 
-    public void setCategories(Set<Category> categories) {
-        this.categories = categories;
+    public Set<Category> getCategories() {
+        return categories;
     }
 
     @Override
