@@ -1,6 +1,7 @@
 package com.educandoweb.springjpahibernate.entities;
 
 import com.educandoweb.springjpahibernate.entities.pk.OrderItemPk;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -13,7 +14,7 @@ import java.util.Objects;
 public class OrderItem implements Serializable {
 
     @EmbeddedId
-    private OrderItemPk id; //atributo identificador correspondente a chave primaria"pk"
+    private OrderItemPk id = new OrderItemPk(); //atributo identificador correspondente a chave primaria"pk"
 
     private Integer quantity;
     private Double price;
@@ -28,6 +29,7 @@ public class OrderItem implements Serializable {
         this.price = price;
     }
 
+    @JsonIgnore
     public Order getOrder(){
         return id.getOrder();
     }
