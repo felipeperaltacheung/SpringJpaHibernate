@@ -4,6 +4,7 @@ import com.educandoweb.springjpahibernate.entities.Order;
 import com.educandoweb.springjpahibernate.entities.enums.OrderStatus;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Builder;
 
 import javax.persistence.*;
 import java.io.Serializable;
