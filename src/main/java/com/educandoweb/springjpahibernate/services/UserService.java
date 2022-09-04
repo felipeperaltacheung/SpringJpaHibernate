@@ -2,6 +2,7 @@ package com.educandoweb.springjpahibernate.services;
 
 import com.educandoweb.springjpahibernate.entities.User;
 import com.educandoweb.springjpahibernate.repositories.UserRepository;
+import com.educandoweb.springjpahibernate.services.exceptions.ResourcesNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +21,7 @@ public class UserService {
 
     public User findById(Long id){
         Optional<User> obj = repository.findById(id);
-        return obj.get();
+        return obj.orElseThrow(() -> new ResourcesNotFoundException(id));
     }
 
     public User insert(User obj){
